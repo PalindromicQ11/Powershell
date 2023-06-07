@@ -1,0 +1,13 @@
+DesireStateConfig.ps1 
+
+DesireStateConfig (CmdletBinding [required=true]) {
+    $ = Get-DesireStateConfigure -name <str> format-table | Outfile-host 
+    $Module = Get-Module -name <str> -WMI | select {$_.WMI like % %}
+        { $PSremoting = Get-PSSession | Select {$_. like %port% }
+          if $PSremoting is disabled do: {
+            $Script = Set-Script -path://.*
+            }
+            
+            
+            
+            
